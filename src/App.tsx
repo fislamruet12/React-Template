@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider, useSelector } from 'react-redux'
+import { RootState } from './state/reducer';
+import { persistor, store } from './state';
+import { PersistGate } from 'redux-persist/integration/react';
+import MainScreen from './modules';
 
 function App() {
+  // const user=useSelector((state:RootState)=>state.currentUser)
+  // console.log('user',user)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <MainScreen/>
+      </PersistGate>
+    </Provider>
   );
 }
 
