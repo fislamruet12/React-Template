@@ -1,13 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../state/reducer";
-import AuthHomeScreen from "./auth/authHome";
+import LandingScreen from "./app";
+
 
 const MainScreen=()=>{
 
     return(
         <div>
-          <AuthHomeScreen/>
+         <LandingScreen/>
         </div>
     )
 }
